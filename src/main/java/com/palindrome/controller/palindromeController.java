@@ -13,7 +13,7 @@ public class palindromeController {
     public String palindrom(@RequestBody String inputan){ //methode yang dapat digunakan semua folder dengan tipe data pengembalian string kemudian requestbody untuk permintaan di body
         String cekpali = ""; //deklarasi penampungan
         int input; //deklarasi penampungan
-        System.out.print("masukan teks yang di cek : "); //untuk menampilkan hasil pada terminal
+        log.info("masukan teks yang di cek : "); //untuk menampilkan hasil pada terminal
         input = inputan.length(); // menghitung panjang inputan
         for (int i = input - 1; i >= 0; i--) // perulangan atau loop dengan kondisi
         {
