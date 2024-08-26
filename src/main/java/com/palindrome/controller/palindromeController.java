@@ -16,9 +16,7 @@ public class palindromeController {
         log.info("masukan teks yang di cek : "); //untuk menampilkan hasil pada terminal
         input = inputan.length(); // menghitung panjang inputan
         for (int i = input - 1; i >= 0; i--) // perulangan atau loop dengan kondisi
-        {
             cekpali = cekpali + inputan.charAt(i); // kondisi penampung string kosong di isi dengan inputan namun yang sudah dibalik
-        }
         if (inputan.equals(cekpali)) //percabangan dengan kondisi jika inputan sama dengan cekpali
             return "palindrom";
         else
@@ -28,7 +26,7 @@ public class palindromeController {
     public String palindrome(@RequestBody String input){
         String palindrom = "";
         int hitung ;
-        System.out.print("masukan teks yang mau di cek");
+        log.info("masukan teks yang mau di cek");
         hitung = input.length();
         for (int i = hitung - 1; i >= 0; i--) {
             palindrom += input.charAt(i);
