@@ -1,5 +1,6 @@
 package com.palindrome.controller;
 
+import jakarta.annotation.Nullable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,18 +24,22 @@ public class palindromeController {
             return "tidak palindrom";
     }
     @PostMapping ("/cekPalindrome") //lebih simple tapi pastense
-    public String palindrome(@RequestBody String input){
-        String palindrom = "";
+    public String palindrome(@RequestBody @Nullable String input){
+        StringBuilder palindrom = new StringBuilder();
         int hitung ;
         log.info("masukan teks yang mau di cek");
-        hitung = input.length();
+
+        if (input != null){
+            hitung = input.length();
         for (int i = hitung - 1; i >= 0; i--) {
-            palindrom += input.charAt(i);
+            palindrom.append(input.charAt(i));
         }
-        if (palindrom.equals(input)){
+        if (palindrom.toString().equals(input) ){
             return "ini Palindrom";
         }
         return "ini tidak palindrom";
+    }
+        return " input anda null";
     }
      /* public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
